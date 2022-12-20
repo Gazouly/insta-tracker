@@ -1,0 +1,8 @@
+/coverage
+/dist
+/examples
+/node_modules
+.eslintrc.js
+prettier.config.js
+craco.config.js
+commitlint.config.js

@@ -1,13 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -15,12 +10,16 @@
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationMap": true, // Allow jumping to source file instead of 'd.ts' file
+    "skipLibCheck": true, // Significant perf increase by skipping checking .d.ts files, particularly those in node_modules. Recommended by TS.
+    "resolveJsonModule": true, // Allow importing .json files
+    "typeRoots": ["./node_modules/@types", "./type-definitions"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"],
+  "exclude": [],
+  "extends": "./tsconfig.paths.json"
 }
