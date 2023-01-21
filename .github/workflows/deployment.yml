@@ -1,0 +1,30 @@
+name: Insta_Tracker
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn
+      # - name: Run unit tests
+      #   run: yarn test:unit
+      # - name: Generate build
+      #   run: yarn build
+      # - name: Run E2E tests
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     start: yarn start:build
+      # Share artifact inside workflow
+      - name: Share artifact inside workflow
+        uses: actions/upload-artifact@v1
+        with:
+          name: sales-team-app-performance
+          path: dist
