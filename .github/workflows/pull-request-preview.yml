@@ -1,13 +1,10 @@
-name: Insta_Tracker
+name: Insta_Tracker_PR_Preview
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
+"on": pull_request
 
 jobs:
   build:
+    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -28,6 +25,5 @@ jobs:
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSTATRACKER }}"
-          channelId: live
           projectId: instatracker-2a0fd
 
